@@ -73,5 +73,5 @@ int main(){
     finalans+=ans[0];
     for(int i=1;i<ans.length();i++)
         if(ans[i]!='x' || ans[i-1]!=ans[i+1] && ans[i+1]!='\0')finalans+=ans[i];
-    cout<<finalans<<endl;
+    cout<<finalans<<endl<<endl;
 }

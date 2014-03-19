@@ -5,9 +5,9 @@
 #include<cstdio>
 using namespace std;
 
-string solve(char *s,int len,int key){
+string solve(string s,int key){
 	string ans="";
-		for(int i=0;i<len;i++){
+		for(int i=0;i<s.length();i++){
 			if(!isalpha(s[i]))ans+=s[i];
 			else{
 				char ch = tolower(s[i]);
@@ -20,32 +20,33 @@ string solve(char *s,int len,int key){
 		}
 	return ans;
 }
+
 int main(){
-	char s[200000];
-	int len,key;
+	string s;
+	int key;
 	char option;
 	
 	cout<<"Enter cipher text\n";
-	gets(s);
-	len = strlen(s);
+	getline(cin,s);
 	
 	cout<<"Do you know the key (Y or N)?\n";
 
 	cin>>option;
 	option = tolower(option);
+
 	if(option=='y'){
 		cout<<"Enter key\n";		
 		cin>>key;
-		cout<<solve(s,len,key)<<endl;
+		cout<<solve(s,key)<<endl;
 	}
 	else{
 		for(int i=1;i<=25;i++)
 			{
 				cout<<"****\n";
 				cout<<"Key: "<<i<<endl;
-				cout<<"Plaintext: "<<solve(s,len,i)<<endl;
+				cout<<"Plaintext: "<<solve(s,i)<<endl;
 				cout<<"****\n\n";
 			}
 	}
-	
+	cout<<endl;
 }

@@ -259,5 +259,5 @@ int main(int argc,char **argv){
         for(int j=i;j<i+16;j++)  T[j-i]=text[j];
         encrypt(roundKeys,T,IV);
     }
-    puts("");
+    puts("\n");
 }

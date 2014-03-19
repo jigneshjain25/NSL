@@ -49,5 +49,5 @@ int main(){
         ciphertext+=solve(temp,kmatrix);
       //  cout<<ciphertext<<" ";
     }
-    cout<<ciphertext<<endl;
+    cout<<ciphertext<<endl<<endl;
 }

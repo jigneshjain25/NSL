@@ -96,4 +96,6 @@ int main(){
 
    // cout<<modulo(92345,12442,53663);
 
+   cout<<endl;
+
 }

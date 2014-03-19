@@ -29,5 +29,5 @@ int main(){
                 break;
             }
     }
-    cout<<pt<<endl;
+    cout<<pt<<endl<<endl;
 }

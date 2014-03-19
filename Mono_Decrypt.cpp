@@ -1,26 +1,22 @@
-//"etaoinshrdlcumwfgypbvkjxqz";
-// Deecrypting
 #include<iostream>
-#include<cstdio>
-#include<string.h>
 #include<cctype>
 #include<map>
 #include<algorithm>
 using namespace std;
 
 int main(){
-	char s[1000],key[30];
+	string s,key;
+
 	cout<<"Enter Ciphertext\n";
-	gets(s);
-	int len = strlen(s);
+	getline(cin,s);
+	int len = s.length();
+
 	cout<<"Enter Key\n";
-	gets(key);
-	
+	getline(cin,key);
+		
 	map<char,char> mymap;
 	for(int i=0;i<26;i++)mymap[key[i]]='a'+i;
 	
 	for(int i=0;i<len;i++)if(isalpha(s[i]))s[i]=mymap[tolower(s[i])];
-	puts(s);
+	cout<<s<<endl<<endl;
 }	
-
-// zxywudefabcghijklmnopqrstv

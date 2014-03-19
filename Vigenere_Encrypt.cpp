@@ -23,5 +23,5 @@ int main(){
 
     for(int i=0;i<pt.length();i++)
         pt[i] = table[key[i]-'a'][pt[i]-'a'];
-    cout<<pt<<endl;
+    cout<<pt<<endl<<endl;
 }

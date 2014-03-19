@@ -1,20 +1,9 @@
 #include<iostream>
 #include<string.h>
-#include<stdio.h>
-#include<stdlib.h>
+#include<cstdio>
 #define ll unsigned long long
 #include "DES.H"
 using namespace std;
-
-ll randomIv(){
-    ll ans=0;
-    for(int i=0;i<64;i++)
-    {
-        int x = rand()%2;
-        if(x) ans|=(1ull<<i);
-    }
-    return ans;
-}
 
 string tobinary(ll n){
 	if(n==0)return "0";
@@ -150,10 +139,9 @@ unsigned int fiestal(unsigned int Rd,ll key){
     return ffR;
 }
 
-void encrypt(ll roundKeys[16],char text[9],ll &IV){
+void encrypt(ll roundKeys[16],char text[9]){
     
     ll textLong = charToLong(text);
-    textLong ^= IV;
     ll temp=0;
 	//check(tobinary(textLong));
    
@@ -200,9 +188,8 @@ void encrypt(ll roundKeys[16],char text[9],ll &IV){
         }
         if(i!=63)   ciphertext<<=1;
     }
-      IV = ciphertext;
 //    cout<<"JJ "<<ciphertext<<endl;
-      printHexa(tobinary(ciphertext));
+	printHexa(tobinary(ciphertext));
 }
 
 void generateKeys(char key[9], ll roundKeys[16]){
@@ -230,8 +217,6 @@ void generateKeys(char key[9], ll roundKeys[16]){
 
 int main(int argc,char **argv){
     
-    srand(time(0));
-    ll IV = randomIv();
     char key[9],T[9];
     ll roundKeys[16];
     string text;
@@ -250,11 +235,10 @@ int main(int argc,char **argv){
     cin.ignore();
     getline(cin,text);
     while(text.length()%8)text+="x";
-        
-    printf("IV: %llu\n",IV);
+
     for(int i=0;i<text.length();i+=8){
         for(int j=i;j<i+8;j++)  T[j-i]=text[j];
-        encrypt(roundKeys,T,IV);
+        encrypt(roundKeys,T);
     }
     puts("\n");
 }

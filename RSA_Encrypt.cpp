@@ -29,5 +29,5 @@ int main(){
        int m = text[i];
        cout<<modulo(m,e,n)<<" ";
    }
-   cout<<endl;
+   cout<<endl<<endl;
 }

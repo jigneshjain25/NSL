@@ -77,6 +77,5 @@ int main(){
             ans+=table[r2][c1];
         }
     }
-   cout<<ans<<endl;
-
+   cout<<ans<<endl<<endl;
 }

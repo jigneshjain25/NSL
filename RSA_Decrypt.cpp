@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 int modulo(int a,int b,int c){
@@ -21,9 +22,13 @@ int main(){
 
    cout<<"Enter ciphertext\n";
 
+   vector<int> v;
    while(cin>>c)
-       cout<<char(modulo(c,d,n));
+       v.push_back(c);
+
+   for(int i=0;i<v.size();i++)
+       cout<<char(modulo(v[i],d,n));
    
-   cout<<endl;
+   cout<<endl<<endl;
 }
 

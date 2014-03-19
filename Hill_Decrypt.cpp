@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 
 string solve(string P, int kmatrix[3][3]){
@@ -20,10 +21,13 @@ string solve(string P, int kmatrix[3][3]){
 }
 
 int minverse(int x){
+    if(__gcd(x,26)!=1)    
+        return -1;
+    
     for(int i=1;;i++)
         if((x*i)%26==1)return i;
-    return 0;
 }
+
 int main(){
     string key,plaintext,ciphertext="";
     cout<<"Enter key and ciphertext\n";
@@ -44,8 +48,12 @@ int main(){
     
     det%=26;
     if(det < 0)det+=26;
-    cout<<det<<endl;
+   // cout<<det<<endl;
     det = minverse(det);
+    if(det==-1){
+        cout<<"error\n\n";
+        return 1;
+    }
    // cout<<det<<endl;
 
     
@@ -81,5 +89,5 @@ int main(){
         ciphertext+=solve(temp,kinverse);
       //  cout<<ciphertext<<" ";
     }
-    cout<<ciphertext<<endl;
+    cout<<ciphertext<<endl<<endl;
 }

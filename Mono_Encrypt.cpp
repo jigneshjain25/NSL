@@ -1,28 +1,29 @@
-//"etaoinshrdlcumwfgypbvkjxqz";
-// Deecrypting
 #include<iostream>
-#include<cstdio>
 #include<string.h>
-#include<cctype>
-#include<map>
 #include<algorithm>
+#include<map>
 using namespace std;
 
 int main(){
-	srand(time(0));
-	char s[1000],key[]="hifgstjklmnabcdeuopqrvwxyz";		
+	
+    srand(time(0));
+	string s,key ="abcdefghijklmnopqrstuvwxyz";		
+
 	cout<<"Enter Plaintext\n";
-	gets(s);
-	int len = strlen(s);
+	getline(cin,s);
+	int len = s.length();
 	
-	int times = rand()%1000000;
-	while(next_permutation(key,key+26) && times--)next_permutation(key,key+26);
+	for(int i=0;i<len;i++){
+        int x = rand()%len;
+        swap(key[x],key[i]);
+    }
 	
-	cout<<key<<endl;
-	map<char,char> mymap;
+	cout<<"Random key: "<<key<<endl;
+	
+    map<char,char> mymap;
 	for(int i=0;i<26;i++)mymap['a'+i]=key[i];
 	
 	for(int i=0;i<len;i++)if(isalpha(s[i]))s[i]=mymap[tolower(s[i])];
-	puts(s);
+	cout<<s<<endl<<endl;
 }	
 
